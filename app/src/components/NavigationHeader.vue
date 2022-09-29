@@ -54,3 +54,15 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.v-list {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+
+    .v-list-item__title {
+        text-align: left;
+    }
+}
+</style>
