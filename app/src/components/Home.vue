@@ -7,7 +7,7 @@
         disable-pagination
         fixed-header
         hide-default-footer
-        class="elevation-1">
+        class="elevation-2">
         </v-data-table>
     </v-container>
 </template>
