@@ -6,5 +6,10 @@
 <script>
 export default {
     name: "Settings",
+    mounted() {
+        setTimeout(() => {
+            this.$store.dispatch('stopLoading');
+        }, 1000);
+    },
 };
 </script>

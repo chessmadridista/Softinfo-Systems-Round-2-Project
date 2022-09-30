@@ -76,6 +76,7 @@ export default {
             this.getData()
             .then((data) => {
                 this.setData(data);
+                this.$store.dispatch('stopLoading');
             });
 
             return true;
