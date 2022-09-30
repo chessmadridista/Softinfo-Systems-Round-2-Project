@@ -3,7 +3,7 @@
         <v-app-bar app>
             <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
             <v-toolbar-title>
-                Home
+                {{ title }}
             </v-toolbar-title>
         </v-app-bar>
         <v-navigation-drawer
@@ -17,7 +17,8 @@
                     v-for="item of items"
                     link
                     :key="item.itemID"
-                    :to="item.itemLink">
+                    :to="item.itemLink"
+                    @click="setPageTitle(item.itemTitle)">
                         <v-list-item-icon>
                             <v-icon>{{ item.itemIcon }}</v-icon>
                         </v-list-item-icon>
@@ -34,6 +35,7 @@ export default {
     data() {
         return {
             drawer: false,
+            title: "Home",
             items: [
                 {
                     itemID: 0,
@@ -53,9 +55,15 @@ export default {
                     itemTitle: "Settings",
                     itemLink: "/settings",
                 },
-
             ],
         };
+    },
+    methods: {
+        setPageTitle(title) {
+            this.title = title;
+
+            return true;
+        },
     },
 };
 </script>
