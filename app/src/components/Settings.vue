@@ -2,7 +2,8 @@
     <v-container>
         <v-switch
         v-model="darkMode"
-        label="Dark mode">
+        label="Dark mode"
+        @click="setTheme()">
         </v-switch>
     </v-container>
 </template>
@@ -13,6 +14,17 @@ export default {
         return {
             darkMode: false,
         };
+    },
+    methods: {
+        setTheme() {
+            if (this.darkMode) {
+                this.$vuetify.theme.dark = true;
+            } else {
+                this.$vuetify.theme.dark = false;
+            }
+
+            return true;
+        },
     },
     mounted() {
         setTimeout(() => {
