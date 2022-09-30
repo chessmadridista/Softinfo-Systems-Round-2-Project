@@ -1,16 +1,21 @@
 <template>
   <v-app>
+    <Loader />
     <NavigationHeader />
-    <router-view/>
+    <v-main>
+      <router-view/>
+    </v-main>
   </v-app>
 </template>
 <script>
 import NavigationHeader from "./components/NavigationHeader.vue";
+import Loader from "./components/Loader.vue";
 
 export default {
   name: "App",
   components: {
     NavigationHeader,
+    Loader,
   },
 }
 </script>

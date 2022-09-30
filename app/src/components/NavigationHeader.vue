@@ -15,7 +15,9 @@
                 <v-list-item-group>
                     <v-list-item
                     v-for="item of items"
-                    :key="item.itemID">
+                    link
+                    :key="item.itemID"
+                    :to="item.itemLink">
                         <v-list-item-icon>
                             <v-icon>{{ item.itemIcon }}</v-icon>
                         </v-list-item-icon>
@@ -36,17 +38,20 @@ export default {
                 {
                     itemID: 0,
                     itemIcon: "mdi-view-dashboard",
-                    itemTitle: "Home"
+                    itemTitle: "Home",
+                    itemLink: "/",
                 },
                 {
                     itemID: 1,
                     itemIcon: "mdi-magnify",
-                    itemTitle: "Explore"
+                    itemTitle: "Explore",
+                    itemLink: "/explore",
                 },
                 {
                     itemID: 2,
                     itemIcon: "mdi-cog",
-                    itemTitle: "Settings"
+                    itemTitle: "Settings",
+                    itemLink: "/settings",
                 },
 
             ],
