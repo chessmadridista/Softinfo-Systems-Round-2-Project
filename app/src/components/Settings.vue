@@ -12,7 +12,7 @@ export default {
     name: "Settings",
     data() {
         return {
-            darkMode: false,
+            darkMode: this.$vuetify.theme.dark,
         };
     },
     methods: {
