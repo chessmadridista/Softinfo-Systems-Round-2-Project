@@ -57,6 +57,15 @@ export default {
         };
     },
     methods: {
+        setFixedColumnAndHeaderBackground() {
+            if (this.$vuetify.theme.dark) {
+                document.documentElement.style.setProperty("--fixedCellBackground", "#1e1e1e");
+            } else {
+                document.documentElement.style.setProperty("--fixedCellBackground", "#fff");
+            }
+
+            return true;
+        },
         async getData() {
             const URL = "https://api.publicapis.org/entries";
 
@@ -74,6 +83,7 @@ export default {
             return true;
         },
         initialiseComponent() {
+            this.setFixedColumnAndHeaderBackground();
             this.getData()
             .then((data) => {
                 this.setData(data);
@@ -88,3 +98,21 @@ export default {
     },
 }
 </script>
+<style lang="scss">
+:root {
+    --fixedCellBackground: #fff;
+}
+th:first-child {
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 4 !important;
+}
+td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 3 !important;
+    // background: #fff;
+    background: var(--fixedCellBackground);
+}
+</style>
