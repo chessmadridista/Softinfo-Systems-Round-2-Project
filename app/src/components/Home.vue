@@ -1,17 +1,13 @@
 <template>
     <v-container>
-        <v-layout>
-            <v-flex>
-                <v-data-table
-                :headers="tableHeaders"
-                :items="tableItems"
-                disable-pagination
-                fixed-header
-                hide-default-footer
-                class="elevation-1">
-                </v-data-table>
-            </v-flex>
-        </v-layout>
+        <v-data-table
+        :headers="tableHeaders"
+        :items="tableItems"
+        disable-pagination
+        fixed-header
+        hide-default-footer
+        class="elevation-1">
+        </v-data-table>
     </v-container>
 </template>
 <script>
@@ -65,8 +61,6 @@ export default {
 
             return fetch(URL)
                 .then((response) => {
-                    console.log(response);
-
                     return response.json();
                 })
                 .then((data) => {
