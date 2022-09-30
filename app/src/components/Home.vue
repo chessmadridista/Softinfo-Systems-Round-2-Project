@@ -1,47 +1,17 @@
 <template>
     <v-container>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
-        <v-card>
-            Home
-        </v-card>
+        <v-layout>
+            <v-flex>
+                <v-data-table
+                :headers="tableHeaders"
+                :items="tableItems"
+                disable-pagination
+                fixed-header
+                hide-default-footer
+                class="elevation-1">
+                </v-data-table>
+            </v-flex>
+        </v-layout>
     </v-container>
 </template>
 <script>
@@ -50,13 +20,41 @@ export default {
     data() {
         return {
             tableHeaders: [
-                "API",
-                "Description",
-                "Auth",
-                "HTTPS",
-                "Cors",
-                "Link",
-                "Category",
+                {
+                    text: "API",
+                    value: "API",
+                    width: "200",
+                },
+                {
+                    text: "Description",
+                    value: "Description",
+                    width: "200",
+                },
+                {
+                    text: "Auth",
+                    value: "Auth",
+                    width: "200",
+                },
+                {
+                    text: "HTTPS",
+                    value: "HTTPS",
+                    width: "200",
+                },
+                {
+                    text: "Cors",
+                    value: "Cors",
+                    width: "200",
+                },
+                {
+                    text: "Link",
+                    value: "Link",
+                    width: "200",
+                },
+                {
+                    text: "Category",
+                    value: "Category",
+                    width: "200",
+                },
             ],
             tableItems: [],
         };
@@ -94,3 +92,9 @@ export default {
     },
 }
 </script>
+<style lang="scss" scoped>
+.v-data-table {
+    height: 300px;
+    overflow: auto;
+}
+</style>
