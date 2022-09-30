@@ -1,0 +1,51 @@
+<template>
+    <v-container>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+        <v-card>
+            Home
+        </v-card>
+    </v-container>
+</template>
+<script>
+export default {
+    name: "Home",
+}
+</script>
