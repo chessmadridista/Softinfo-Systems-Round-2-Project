@@ -7,7 +7,9 @@
             cols=12
             md=6
             lg=4>
-                <v-card>
+                <v-card
+                class="pa-4 rounded-lg"
+                height="600px">
                     <v-card-title><a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a></v-card-title>
                     <v-card-subtitle>{{ item.author }}</v-card-subtitle>
                     <v-img
@@ -21,6 +23,8 @@
                     <v-card-actions>
                         <v-btn
                         rounded
+                        absolute
+                        bottom right
                         color="error"
                         @click="deleteItem(item.id)">
                             Delete
@@ -75,3 +79,10 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.v-image {
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+</style>
