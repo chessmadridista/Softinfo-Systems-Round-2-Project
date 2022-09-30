@@ -24,7 +24,9 @@
                         <v-btn
                         rounded
                         absolute
-                        bottom right
+                        bottom 
+                        right
+                        class="mr-2 mb-2"
                         color="error"
                         @click="deleteItem(item.id)">
                             Delete
