@@ -3,6 +3,7 @@
         <v-data-table
         :headers="tableHeaders"
         :items="tableItems"
+        height="400"
         disable-pagination
         fixed-header
         hide-default-footer
@@ -87,9 +88,3 @@ export default {
     },
 }
 </script>
-<style lang="scss" scoped>
-.v-data-table {
-    height: 300px;
-    overflow: auto;
-}
-</style>
