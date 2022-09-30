@@ -17,6 +17,11 @@ export default {
     NavigationHeader,
     Loader,
   },
+  watch: {
+    $route() {
+      this.$store.dispatch('startLoading');
+    },
+  }
 }
 </script>
 <style lang="scss">
