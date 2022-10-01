@@ -10,12 +10,14 @@
 <script>
 import NavigationHeader from "./components/NavigationHeader.vue";
 import Loader from "./components/Loader.vue";
+import Snackbar from "./components/Snackbar.vue";
 
 export default {
   name: "App",
   components: {
     NavigationHeader,
     Loader,
+    Snackbar,
   },
   watch: {
     $route() {
