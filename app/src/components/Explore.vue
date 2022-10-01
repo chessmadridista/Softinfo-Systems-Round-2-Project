@@ -10,13 +10,13 @@
                 <v-card
                 class="pa-2 rounded-lg"
                 height="600px">
-                    <v-card-title><a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a></v-card-title>
-                    <v-card-subtitle>{{ item.author }}</v-card-subtitle>
-                    <v-img
-                    height="150"
-                    width="150"
-                    :src="item.imageUrl">
-                    </v-img>
+                    <v-card-title
+                    class="mb-1"
+                    >
+                        <a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+                    </v-card-title>
+                    <v-card-subtitle>- {{ item.author }}</v-card-subtitle>
+                    <v-img :src="item.imageUrl"></v-img>
                     <v-card-text>
                         {{ item.content }}
                     </v-card-text>
@@ -85,7 +85,8 @@ export default {
 <style lang="scss" scoped>
 .v-image {
     display: block;
-    width: 50%;
+    width: 150px;
+    height: 150px;
     margin: auto;
 }
 </style>
