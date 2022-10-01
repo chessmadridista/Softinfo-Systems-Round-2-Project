@@ -71,8 +71,23 @@ export default {
 
             return true;
         },
+        setSnackbarAttributes() {
+            const snackbarMessage = "The item has been deleted successfully!";
+            const snackbarColor = "success";
+            const showSnackbar = true;
+            this.$store.dispatch("setSnackbarMessage", snackbarMessage);
+            this.$store.dispatch("setSnackbarColor", snackbarColor);
+            this.$store.dispatch("setSnackbarState", showSnackbar);
+            setTimeout(() => {
+                const showSnackbar = false;
+                this.$store.dispatch("setSnackbarState", showSnackbar);
+            }, 2000);
+
+            return true;
+        },
         deleteItem(itemId) {
             this.items = this.items.filter(item => item.id != itemId);
+            this.setSnackbarAttributes();
 
             return true;
         },
