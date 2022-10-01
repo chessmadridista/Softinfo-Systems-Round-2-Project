@@ -3,7 +3,7 @@
         <v-switch
         v-model="darkMode"
         label="Dark mode"
-        @click="setTheme()">
+        @click="update()">
         </v-switch>
     </v-container>
 </template>
@@ -16,6 +16,20 @@ export default {
         };
     },
     methods: {
+        setSnackbarAttributes() {
+            const snackbarMessage = "The theme has been successfully updated!";
+            const snackbarColor = "success";
+            const showSnackbar = true;
+            this.$store.dispatch("setSnackbarMessage", snackbarMessage);
+            this.$store.dispatch("setSnackbarColor", snackbarColor);
+            this.$store.dispatch("setSnackbarState", showSnackbar);
+            setTimeout(() => {
+                const showSnackbar = false;
+                this.$store.dispatch("setSnackbarState", showSnackbar);
+            }, 2000);
+
+            return true;
+        },
         setTheme() {
             if (this.darkMode) {
                 this.$vuetify.theme.dark = true;
@@ -24,6 +38,10 @@ export default {
             }
 
             return true;
+        },
+        update() {
+            this.setTheme();
+            this.setSnackbarAttributes();
         },
     },
     mounted() {

@@ -6,6 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isLoading: true,
+    snackbarMessage: "",
+    snackbarColor: "",
+    showSnackbar: false,
   },
   mutations: {
     START_LOADING(state) {
@@ -14,6 +17,15 @@ export default new Vuex.Store({
     STOP_LOADING(state) {
       state.isLoading = false;
     },
+    SET_SNACKBAR_MESSAGE(state, message) {
+      state.snackbarMessage = message;
+    },
+    SET_SNACKBAR_COLOR(state, color) {
+      state.snackbarColor = color;
+    },
+    SET_SNACKBAR_STATE(state, showSnackbar) {
+      state.showSnackbar = showSnackbar;
+    },
   },
   actions: {
     startLoading(context) {
@@ -21,6 +33,15 @@ export default new Vuex.Store({
     },
     stopLoading(context) {
       context.commit('STOP_LOADING');
+    },
+    setSnackbarMessage(context, message) {
+      context.commit('SET_SNACKBAR_MESSAGE', message);
+    },
+    setSnackbarColor(context, color) {
+      context.commit('SET_SNACKBAR_COLOR', color);
+    },
+    setSnackbarState(context, showSnackbar) {
+      context.commit('SET_SNACKBAR_STATE', showSnackbar);
     },
   },
 })
