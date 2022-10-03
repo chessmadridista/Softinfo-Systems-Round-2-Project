@@ -1,11 +1,20 @@
 <template>
     <v-container>
         <v-app-bar app>
-            <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-            <v-toolbar-title>
-                {{ title }}
-            </v-toolbar-title>
-            <SearchBar />
+            <v-row
+            align="center">
+                <v-col cols="2" sm="1" md="1">
+                    <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+                </v-col>
+                <v-col cols="4" sm="2" md="1">
+                    <v-toolbar-title>
+                        {{ title }}
+                    </v-toolbar-title>
+                </v-col>
+                <v-col cols="6" sm="9" md="10">
+                    <SearchBar />
+                </v-col>
+            </v-row>
         </v-app-bar>
         <v-navigation-drawer
         fixed
