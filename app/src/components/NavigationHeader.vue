@@ -5,6 +5,7 @@
             <v-toolbar-title>
                 {{ title }}
             </v-toolbar-title>
+            <SearchBar />
         </v-app-bar>
         <v-navigation-drawer
         fixed
@@ -30,8 +31,13 @@
     </v-container>
 </template>
 <script>
+import SearchBar from './SearchBar.vue';
+
 export default {
     name: "NavigationHeader",
+    components: {
+        SearchBar,
+    },
     data() {
         return {
             drawer: false,
