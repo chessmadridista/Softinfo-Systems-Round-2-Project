@@ -36,7 +36,7 @@ export default {
                         item.scrollIntoView();
                 }, 0);
             } else {
-                this.$router.push({name: 'explore', params: { ID }})
+                this.$router.push({name: 'explore', params: { id: ID }})
             }
 
             return true;
