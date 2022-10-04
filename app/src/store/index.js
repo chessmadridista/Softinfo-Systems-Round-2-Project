@@ -9,6 +9,7 @@ export default new Vuex.Store({
     snackbarMessage: "",
     snackbarColor: "",
     showSnackbar: false,
+    news: [],
   },
   mutations: {
     START_LOADING(state) {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     SET_SNACKBAR_STATE(state, showSnackbar) {
       state.showSnackbar = showSnackbar;
     },
+    SET_NEWS(state, news) {
+      state.news = news;
+    },
   },
   actions: {
     startLoading(context) {
@@ -42,6 +46,9 @@ export default new Vuex.Store({
     },
     setSnackbarState(context, showSnackbar) {
       context.commit('SET_SNACKBAR_STATE', showSnackbar);
+    },
+    setNews(context, news) {
+      context.commit('SET_NEWS', news);
     },
   },
 })

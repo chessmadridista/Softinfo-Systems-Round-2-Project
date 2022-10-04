@@ -87,6 +87,19 @@ export default {
             this.getData()
             .then((data) => {
                 this.setData(data);
+            })
+            .catch(() => {
+                const message = "Sorry, the API is not reachable at the moment. Please reload or try again after some time.";
+                const color = "error";
+                const showSnackbar = true;
+                this.$store.dispatch('setSnackbarMessage', message);
+                this.$store.dispatch('setSnackbarColor', color);
+                this.$store.dispatch('setSnackbarState', showSnackbar);
+                setTimeout(() => {
+                    this.$store.dispatch('setSnackbarState', !showSnackbar);
+                }, 4500);
+            })
+            .finally(() => {
                 this.$store.dispatch('stopLoading');
             });
 

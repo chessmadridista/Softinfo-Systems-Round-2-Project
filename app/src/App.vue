@@ -23,6 +23,9 @@ export default {
   watch: {
     $route() {
       this.$store.dispatch('startLoading');
+      setTimeout(() => {
+        this.$store.dispatch('stopLoading');
+      }, 5000)
     },
   }
 }
