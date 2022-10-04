@@ -9,7 +9,8 @@
             lg=4>
                 <v-card
                 class="pa-2 rounded-lg"
-                height="600px">
+                height="600px"
+                :id="calcId(item.id)">
                     <v-card-title
                     class="mb-1"
                     >
@@ -46,6 +47,12 @@ export default {
         };
     },
     methods: {
+        calcId(id) {
+            const PREPEND_ID = "item-";
+            const FINAL_ID = PREPEND_ID + id;
+            
+            return FINAL_ID;
+        },
         async getData() {
             const URL = "https://inshorts.deta.dev/news?category=science";
 
@@ -63,24 +70,33 @@ export default {
             return true;
         },
         initialiseComponent() {
-            this.getData()
-            .then((data) => {
+            if (this.$store.state.news.length === 0) {
+                this.getData()
+                .then((data) => {
+                    this.setData(data);
+                    this.$store.dispatch('setNews', data);
+                })
+                .catch(() => {
+                    const message = "Sorry, the API is not reachable at the moment. Please reload or try again after some time.";
+                    const color = "error";
+                    const showSnackbar = true;
+                    this.$store.dispatch('setSnackbarMessage', message);
+                    this.$store.dispatch('setSnackbarColor', color);
+                    this.$store.dispatch('setSnackbarState', showSnackbar);
+                    setTimeout(() => {
+                        this.$store.dispatch('setSnackbarState', !showSnackbar);
+                    }, 4500);
+                })
+                .finally(() => {
+                    this.$store.dispatch('stopLoading');
+                });
+            } else {
+                const data = this.$store.state.news;
                 this.setData(data);
-            })
-            .catch(() => {
-                const message = "Sorry, the API is not reachable at the moment. Please reload or try again after some time.";
-                const color = "error";
-                const showSnackbar = true;
-                this.$store.dispatch('setSnackbarMessage', message);
-                this.$store.dispatch('setSnackbarColor', color);
-                this.$store.dispatch('setSnackbarState', showSnackbar);
                 setTimeout(() => {
-                    this.$store.dispatch('setSnackbarState', !showSnackbar);
-                }, 4500);
-            })
-            .finally(() => {
-                this.$store.dispatch('stopLoading');
-            });
+                    this.$store.dispatch('stopLoading');
+                }, 2000);
+            }
 
             return true;
         },
@@ -107,6 +123,16 @@ export default {
     },
     mounted() {
         this.initialiseComponent();
+
+        setTimeout(() => {
+            const PARAM = this.$route.params.id;
+            
+            if (PARAM) {
+                const item = document.getElementById(PARAM);
+                console.log(item);
+                item.scrollIntoView();
+            }
+        }, 0);
     },
 };
 </script>
