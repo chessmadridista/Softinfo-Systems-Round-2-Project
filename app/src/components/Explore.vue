@@ -75,10 +75,9 @@ export default {
 
                 if (PARAM) {
                     const item = document.getElementById(PARAM);
-                    console.log(item);
                     item.scrollIntoView();
                 }
-        }, 0);
+            }, 0);
         },
         initialiseComponent() {
             if (this.$store.state.news.length === 0) {
@@ -86,6 +85,7 @@ export default {
                 .then((data) => {
                     this.setData(data);
                     this.$store.dispatch('setNews', data);
+                    this.scrollNewsItemIntoView();
                 })
                 .catch(() => {
                     const message = "Sorry, the API is not reachable at the moment. Please reload or try again after some time.";
@@ -107,9 +107,8 @@ export default {
                 setTimeout(() => {
                     this.$store.dispatch('stopLoading');
                 }, 2000);
+                this.scrollNewsItemIntoView();
             }
-
-            this.scrollNewsItemIntoView();
 
             return true;
         },
