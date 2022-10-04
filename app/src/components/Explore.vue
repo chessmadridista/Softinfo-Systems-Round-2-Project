@@ -69,6 +69,17 @@ export default {
 
             return true;
         },
+        scrollNewsItemIntoView() {
+            setTimeout(() => {
+                const PARAM = this.$route.params.id;
+
+                if (PARAM) {
+                    const item = document.getElementById(PARAM);
+                    console.log(item);
+                    item.scrollIntoView();
+                }
+        }, 0);
+        },
         initialiseComponent() {
             if (this.$store.state.news.length === 0) {
                 this.getData()
@@ -98,6 +109,8 @@ export default {
                 }, 2000);
             }
 
+            this.scrollNewsItemIntoView();
+
             return true;
         },
         setSnackbarAttributes() {
@@ -123,16 +136,6 @@ export default {
     },
     mounted() {
         this.initialiseComponent();
-
-        setTimeout(() => {
-            const PARAM = this.$route.params.id;
-            
-            if (PARAM) {
-                const item = document.getElementById(PARAM);
-                console.log(item);
-                item.scrollIntoView();
-            }
-        }, 0);
     },
 };
 </script>
